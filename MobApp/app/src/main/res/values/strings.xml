@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">3DE</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="birth_date">Date of Birth (MM/DD/YYYY)</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="user_details">User Details</string>
+    <string name="submit">Submit</string>
+</resources>
