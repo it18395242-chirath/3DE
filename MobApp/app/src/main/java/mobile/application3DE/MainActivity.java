@@ -3,26 +3,37 @@ package mobile.application3DE;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
 
+import mobile.application3DE.models.User;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText dateInput;
+    TextInputEditText dateInput, fName, lName;
+    RadioGroup gender;
+    RadioButton gBtn;
     DatePickerDialog datePickerDialog;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_registration);
 
         dateInput = findViewById(R.id.bdayInput);
+        fName = findViewById(R.id.fName);
+        lName = findViewById(R.id.lName);
+        gender = findViewById(R.id.genderGroup);
 
         dateInput.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,4 +60,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void directToNext(View view) {
+
+        // getting selected gender
+        gBtn = findViewById(gender.getCheckedRadioButtonId());
+
+        if(Validate_Inputs()) {
+            Intent i = new Intent(this, user_details_2.class);
+            user = new User(fName.getText().toString(), lName.getText().toString(), dateInput.getText().toString(), gBtn.getText().toString());
+            i.putExtra("user", user);
+            startActivity(i);
+        }
+        else // Showing error message when the field values are not valid
+            Snackbar.make(view,"Please fill all the required fields",Snackbar.LENGTH_SHORT).show();
+
+    }
+
+    private boolean Validate_Inputs() {
+
+        // Checking if there are empty fields
+        if(fName.getText().toString().matches("") || lName.getText().toString().matches("") || dateInput.getText().toString().matches("") || gBtn.getText().toString().matches(""))
+            return false;
+        else
+            return true;
+
+    }
+
 }

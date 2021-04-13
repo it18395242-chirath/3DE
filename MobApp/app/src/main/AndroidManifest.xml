@@ -3,20 +3,25 @@
     package="mobile.application3DE">
 
     <application
+        android:name=".utilities.MultiLanguageApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobApp">
-        <activity android:name=".orientation.attentionCalculation"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity_choice_landing"></activity>
+        <activity android:name=".Landing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".user_details_2" />
+        <activity android:name=".orientation.attentionCalculation" />
+        <activity android:name=".orientation.tccCalculation" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
