@@ -34,6 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -53,12 +54,14 @@
         app:layout_constraintTop_toBottomOf="@+id/firstname">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--Age-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/bday"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -91,11 +94,13 @@
         app:layout_constraintTop_toBottomOf="@+id/bday">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/male" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/female" />
@@ -133,7 +138,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/submitBtn"
         style="@style/Widget.MaterialComponents.Button"
-        android:text="@string/submit"
+        android:text="@string/next"
+        android:onClick="directToNext"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
@@ -143,4 +149,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderGroup"
         app:layout_constraintVertical_bias="0.717" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
