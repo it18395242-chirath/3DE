@@ -193,7 +193,7 @@ public class TccImageLayout extends AppCompatActivity {
                                 if (snapshot.getValue().toString().equals("Infinite") || hits == 0)
                                     tccRef.child("TCC1Result").setValue("Infinite");
                                 else
-                                    tccRef.child("TCC1Result").setValue((float) fps / hits - (float) snapshot.getValue());
+                                    tccRef.child("TCC1Result").setValue((float) (fps / hits) - (float) snapshot.getValue());
                             }
 
                             @Override
